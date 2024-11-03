@@ -1,4 +1,4 @@
-package com.seq.login;
+package com.seq.login.account;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -3,41 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원 가입 폼</title>
-    <link href="/css/registration.css" rel="stylesheet">
+    <title>회원 정보 폼</title>
+    <link href="/css/register.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="signup-container">
+    <h1>현재 계정 목록</h1>
     <div class="logo">
         <img src="images/seq.png" alt="Logo">
     </div>
-    <form action="/signup" method="post">
-        <!-- 기본 정보 -->
-        <div class="form-group">
-            <label for="name">이름</label>
-            <h4 id="name" th:text="${accounts.get(0).name}">이름</h4>
+        <div class="form-group" th:each="i : ${accounts}">
+            <h4 th:text="${i.name}">이름</h4>
         </div>
-        <div class="form-group">
-            <label for="birth">생년월일</label>
-            <h4 id="birth" th:text="${accounts.get(0).birth}">생년월일</h4>
-        </div>
-        <div class="form-group">
-            <label for="gender">성별</label>
-            <h4 id="gender" th:text="${accounts.get(0).gender}">성별</h4>
-        </div>
-        <!--        <button type="submit" class="submit-btn">가입하기</button>-->
-    </form>
 </div>
-
-<script>
-    // 글자 수 세기
-    const aboutInput = document.getElementById('about');
-    const charCounter = document.querySelector('.char-counter');
-    aboutInput.addEventListener('input', () => {
-        charCounter.textContent = `${aboutInput.value.length}/500`;
-    });
-</script>
 
 </body>
 </html>

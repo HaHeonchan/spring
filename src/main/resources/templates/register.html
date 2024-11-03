@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 가입 폼</title>
+    <link href="/css/register.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="signup-container">
+    <div class="logo">
+        <img src="images/seq.png" alt="Logo">
+    </div>
+
+    <form action="/account" method="POST">
+        <!-- 기본 정보 -->
+        <div class="form-group">
+            <input  name="name" placeholder="이름을 입력해주세요">
+        </div>
+        <div class="form-group">
+            <input name="password" placeholder="비밀번호를 입력해주세요">
+        </div>
+<!--        <div class="form-group">-->
+<!--            <label for="birth">생년월일</label>-->
+<!--            <input type="text" id="birth" name="birth" placeholder="생년월일을 입력해주세요">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="gender">성별</label>-->
+<!--            <input type="text" id="gender" name="gender" placeholder="성별을 입력해주세요">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="address">주소지</label>-->
+<!--            <input type="text" id="address" name="address" placeholder="주소지를 입력해주세요">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="phone">휴대전화 번호</label>-->
+<!--            <input type="tel" id="phone" name="phone" placeholder="휴대전화 번호를 입력해주세요">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="email">이메일</label>-->
+<!--            <input type="email" id="email" name="email" placeholder="이메일 주소를 입력해주세요">-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; 학력 및 스킬 &ndash;&gt;-->
+<!--        <div class="form-group">-->
+<!--            <label for="university">학교명</label>-->
+<!--            <input type="text" id="university" name="university" placeholder="학교명을 입력해주세요">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="major">전공명</label>-->
+<!--            <input type="text" id="major" name="major" placeholder="전공명을 입력해주세요">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="admission">입학년도</label>-->
+<!--            <input type="text" id="admission" name="admission" placeholder="입학년도">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="graduation">졸업연도</label>-->
+<!--            <input type="text" id="graduation" name="graduation" placeholder="졸업연도">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="academic_status">학적상태</label>-->
+<!--            <input type="text" id="academic_status" name="academic_status" placeholder="학적상태">-->
+<!--        </div>-->
+
+<!--        &lt;!&ndash; 희망 직무 및 자기 소개 &ndash;&gt;-->
+<!--        <div class="form-group">-->
+<!--            <label for="skill">스킬</label>-->
+<!--            <input type="text" id="skill" name="skill" placeholder="스킬">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="desired_job">희망 직무</label>-->
+<!--            <input type="text" id="desired_job" name="desired_job" placeholder="희망 직무">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="experience">경험 및 활동이력</label>-->
+<!--            <input type="text" id="experience" name="experience" placeholder="활동에서 경험한 것을 적어주세요!">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="antecedents">경력</label>-->
+<!--            <input type="text" id="antecedents" name="antecedents" placeholder="활동에서 경험한 것을 적어주세요!">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="qualifications">자격 및 수상</label>-->
+<!--            <input type="text" id="qualifications" name="qualifications" placeholder="활동에서 경험한 것을 적어주세요!">-->
+<!--        </div>-->
+<!--        <div class="form-group">-->
+<!--            <label for="about">자기소개</label>-->
+<!--            <textarea id="about" name="about" placeholder="팀원을 모집할 때 참고할 자기소개를 500자 이내로 작성해 적어주세요!" maxlength="500"></textarea>-->
+<!--            <div class="char-counter">0/500</div>-->
+<!--        </div>-->
+
+        <button type="submit" class="submit-btn">가입하기</button>
+    </form>
+</div>
+
+<!--<script>-->
+<!--    // 글자 수 세기-->
+<!--    const aboutInput = document.getElementById('about');-->
+<!--    const charCounter = document.querySelector('.char-counter');-->
+<!--    aboutInput.addEventListener('input', () => {-->
+<!--        charCounter.textContent = `${aboutInput.value.length}/500`;-->
+<!--    });-->
+<!--</script>-->
+
+</body>
+</html>
+
