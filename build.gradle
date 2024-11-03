@@ -34,10 +34,11 @@ dependencies {
 //        testImplementation 'org.springframework.security:spring-security-test'
 		testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 		//implementation 'mysql:mysql-connector-java:8.0.33' // MySQL 드라이버 중복 제거
+		implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
 
 		implementation 'org.springframework.boot:spring-boot-starter-data-jpa' //JPA(접근 취소 에러(DB) 뜨면 userinfo와 함께 임시로 비활성화)
 	}
-
 }
 
 tasks.named('test') {
