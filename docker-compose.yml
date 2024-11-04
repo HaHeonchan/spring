@@ -1,21 +1,9 @@
+version: '3.8'
+
 services:
 
-  services:
-    image: heonchan/spring-app
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
-    environment:
-      - SPRING_DATASOURCE_URL=jdbc:mariadb://mariadb:3306/users
-      - SPRING_DATASOURCE_USERNAME=root
-      - SPRING_DATASOURCE_PASSWORD=1234
-    depends_on:
-      - mariadb
-
   mariadb:
-    image: heonchan/mariadb
+    image: mariadb
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 1234
@@ -26,5 +14,21 @@ services:
       - "3306:3306"
     volumes:
       - mariadb_data:/var/lib/mysql
+
+  spring-app:
+    image: spring-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://mariadb:3306/users
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 1234
+    depends_on:
+      - mariadb
+    restart: always
+
 volumes:
   mariadb_data:

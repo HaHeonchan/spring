@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>회원 가입</title>
+    <title>로그인</title>
     <link href="/css/register.css" rel="stylesheet">
 </head>
 <body>
@@ -13,8 +13,8 @@
         <img src="images/seq.png" alt="Logo">
     </div>
 
-    <form action="/account" method="POST">
-        <h1 style="text-align: center;">회원 가입</h1>
+    <form action="/login" method="GET">
+        <h1 style="text-align: center;">로그인</h1>
 
         <!-- 에러 메시지 표시 -->
         <div style="color: red; text-align: center; margin-bottom: 15px;">
@@ -22,20 +22,20 @@
         </div>
 
         <!-- 기본 정보 -->
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="이름을 입력해주세요" th:value="${name}" required>
-        </div>
+
         <div class="form-group">
             <label for="userId">User ID:</label>
-            <input type="text" id="userId" name="userId" placeholder="아이디를 입력해주세요" th:value="${userId}" required>
+            <input type="text" id="userId" name="userId" placeholder="아이디를 입력해주세요" required>
         </div>
         <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요" th:value="${password}" required>
+            <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요" required>
         </div>
 
-        <button type="submit" class="submit-btn">가입하기</button>
+        <button type="submit" class="submit-btn">로그인</button>
+    </form>
+    <form action="/register" method="GET">
+        <button type="submit" class="submit-btn">회원 가입</button>
     </form>
 </div>
 
