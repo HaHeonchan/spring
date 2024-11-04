@@ -1,7 +1,7 @@
 services:
 
   services:
-    image: spring-app
+    image: heonchan/spring-app
     build:
       context: .
       dockerfile: Dockerfile
@@ -15,7 +15,7 @@ services:
       - mariadb
 
   mariadb:
-    image: mariadb:latest
+    image: heonchan/mariadb
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 1234
