@@ -14,7 +14,7 @@
         <img src="images/seq.png" alt="Logo">
     </div>
         <div class="form-group" th:each="i : ${accounts}">
-            <h4 th:text="${i.name}">이름</h4>
+            <h4 th:text="${i.username}">이름</h4>
         </div>
     <form action="/login" method="GET">
         <button type="submit" class="submit-btn">로그인</button>

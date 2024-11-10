@@ -13,15 +13,14 @@
         <img src="images/seq.png" alt="Logo">
     </div>
 
-    <form action="/login" method="GET">
+
+    <!-- 에러 메시지 표시 -->
+    <div style="color: red;" th:if="${param.error}">
+        <h4>아이디나 비번 틀렸습니다</h4>
+    </div>
+
+    <form action="/login" method="POST">
         <h1 style="text-align: center;">로그인</h1>
-
-        <!-- 에러 메시지 표시 -->
-        <div style="color: red; text-align: center; margin-bottom: 15px;">
-            <p th:text="${error}"></p>
-        </div>
-
-        <!-- 기본 정보 -->
 
         <div class="form-group">
             <label for="userId">User ID:</label>
@@ -34,6 +33,7 @@
 
         <button type="submit" class="submit-btn">로그인</button>
     </form>
+
     <form action="/register" method="GET">
         <button type="submit" class="submit-btn">회원 가입</button>
     </form>

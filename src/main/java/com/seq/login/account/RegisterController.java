@@ -23,14 +23,14 @@ public class RegisterController {
 
     @PostMapping("/account")
     String addAccount(
-            String name,
+            String username,
             String userId,
             String password,
             Model model
     ) {
-        if (name == null || name.isEmpty() || userId == null || userId.isEmpty() || password == null || password.isEmpty()) {
+        if (username == null || username.isEmpty() || userId == null || userId.isEmpty() || password == null || password.isEmpty()) {
             model.addAttribute("error", "모든 필드를 입력해주세요.");
-            model.addAttribute("name", name);
+            model.addAttribute("username", username);
             model.addAttribute("userId", userId);
             model.addAttribute("password", password);
             return "register.html";
@@ -38,14 +38,14 @@ public class RegisterController {
 
         if (accountRepository.existsByUserId(userId)) {
             model.addAttribute("error", "이미 사용 중인 사용자 ID입니다.");
-            model.addAttribute("name", name);
+            model.addAttribute("username", username);
             model.addAttribute("userId", userId);
             model.addAttribute("password", password);
             return "register.html";
         }
 
         Account account = new Account();
-        account.setName(name);
+        account.setUsername(username);
         account.setUserId(userId);
         var hash = new BCryptPasswordEncoder().encode(password);
         account.setPassword(hash);

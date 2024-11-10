@@ -3,7 +3,6 @@ package com.seq.login.account;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.web.bind.annotation.GetMapping;
 
 
 @Entity
@@ -19,7 +18,9 @@ public class Account {
     public String userId;
 
     @Column(nullable = false)
-    public String name;
+    public String username;
     @Column(nullable = false)
     public String password;
+
+
 }
