@@ -50,11 +50,14 @@ public class SecurityConfig {
 
         http.formLogin((formLogin) -> formLogin.loginPage("/login")
                 .usernameParameter("userId")
-                .defaultSuccessUrl("/mypage/jwt")
-
         );
 
-        http.logout( logout -> logout.logoutUrl("/logout") );
+        http.logout(logout -> logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login?logout")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID", "jwt")
+        );
         return http.build();
     }
 

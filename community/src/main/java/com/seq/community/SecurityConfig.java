@@ -40,9 +40,6 @@ public class SecurityConfig {
 
         http.addFilterBefore(new JwtFilter(), ExceptionTranslationFilter.class);
 
-//        http.csrf(csrf -> csrf.csrfTokenRepository(csrfTokenRepository())
-//                .ignoringRequestMatchers("/login")
-//        );
 
         http.authorizeHttpRequests((authorize) ->
                 authorize.requestMatchers("/**").permitAll()
@@ -57,5 +54,4 @@ public class SecurityConfig {
         http.logout( logout -> logout.logoutUrl("/logout") );
         return http.build();
     }
-
 }

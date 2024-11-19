@@ -1,12 +1,12 @@
-# 1. 베이스 이미지 선택 (OpenJDK 17 사용)
+# Base image with OpenJDK 17
 FROM openjdk:17-jdk-slim
 
-# 2. JAR 파일을 컨테이너로 복사
+# Copy the JAR file into the container
 ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} app.jar
 
-# 3. 포트 노출
+# Expose the application port
 EXPOSE 8081
 
-# 4. 애플리케이션 실행
+# Run the application
 ENTRYPOINT ["java", "-jar", "/app.jar"]

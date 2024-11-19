@@ -29,7 +29,7 @@ services:
   spring-login:
     image: spring-login
     build:
-      context: login
+      context: ./login
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
@@ -46,7 +46,7 @@ services:
   spring-community:
     image: spring-community
     build:
-      context: community
+      context: ./community
       dockerfile: Dockerfile
     ports:
       - "8081:8080"
@@ -54,6 +54,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mariadb://mariadb-community:3306/community
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
     depends_on:
       - mariadb-community
     restart: always

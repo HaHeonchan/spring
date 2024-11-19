@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class BasicController {
     @GetMapping("/")
     String main(){
-        return "login.html";
+        return "redirect:/post";
     }
 
 
