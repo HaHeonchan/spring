@@ -22,15 +22,16 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
-      - "3307:3306"  # 다른 포트 사용
+      - "3307:3306"
     volumes:
       - mariadb_community_data:/var/lib/mysql
 
   spring-login:
-    image: spring-login
-    build:
-      context: ./login
-      dockerfile: Dockerfile
+    image: heonchan/spring-login
+#    image: spring-login
+#    build:
+#      context: ./login
+#      dockerfile: Dockerfile
     ports:
       - "8080:8080"
     environment:
@@ -44,10 +45,11 @@ services:
 
 
   spring-community:
-    image: spring-community
-    build:
-      context: ./community
-      dockerfile: Dockerfile
+    image: heonchan/spring-community
+#    image: spring-community
+#    build:
+#      context: ./community
+#      dockerfile: Dockerfile
     ports:
       - "8081:8080"
     environment:
