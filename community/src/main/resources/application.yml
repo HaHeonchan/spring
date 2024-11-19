@@ -3,9 +3,9 @@ spring:
     name: mariadb
   datasource:
 
-    url: jdbc:mariadb://localhost:3306/users?useUnicode=true&characterEncoding=utf8mb4
+    url: jdbc:mariadb://localhost:3307/users?useUnicode=true&characterEncoding=utf8mb4
     username: root
-    password: 1234
+    password: ${MYSQL_ROOT_PASSWORD}
     driver-class-name: org.mariadb.jdbc.Driver
 
   jpa:
