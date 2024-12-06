@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @Controller
@@ -30,17 +31,18 @@ public class LoginController {
         return "login.html";
     }
 
-    @PostMapping("/login/jwt")
+    @PostMapping("/api/login")
     @ResponseBody
-    public String loginJWT(@RequestBody Map<String, String> data,  HttpServletResponse response) {
+    public Map<String, Object> loginJWT(@RequestBody Map<String, String> data,  HttpServletResponse response) {
         var authToken = new UsernamePasswordAuthenticationToken(
-                data.get("userId"), data.get("password")
+                data.get("username"), data.get("password")
         );
         var auth = authenticationManagerBuilder.getObject().authenticate(authToken);
         SecurityContextHolder.getContext().setAuthentication(auth);
 
         var auth2 = SecurityContextHolder.getContext().getAuthentication();
         var jwt = JwtUtil.createToken(auth2);
+        var refreshToken = JwtUtil.createRefreshToken(auth2);
 
         var cookie = new Cookie("jwt", jwt);
         cookie.setMaxAge(100);
@@ -48,6 +50,12 @@ public class LoginController {
         cookie.setPath("/");
         response.addCookie(cookie);
 
-        return jwt;
+        // 응답 데이터 생성
+        Map<String, Object> responseData = new HashMap<>();
+        responseData.put("status", "success");
+        responseData.put("token", jwt);
+        responseData.put("refreshToken", refreshToken);
+
+        return responseData;
     }
 }

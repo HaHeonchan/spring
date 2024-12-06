@@ -19,8 +19,8 @@ public class LoginService implements UserDetailsService{
     private final AccountRepository accountRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
-        var result = accountRepository.findByUserId(userId);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        var result = accountRepository.findByUsername(username);
 
         if(result.isEmpty()) {
             throw new UsernameNotFoundException("user not found");
@@ -31,14 +31,11 @@ public class LoginService implements UserDetailsService{
         authorities.add(new SimpleGrantedAuthority("일반"));
 
         var a = new CustomUser(user.getUsername(), user.getPassword(), authorities);
-        a.userId = user.getUserId();
         return a;
     }
 }
 
 class CustomUser extends User{
-    public String userId;
-
     public CustomUser(
             String username,
             String password,

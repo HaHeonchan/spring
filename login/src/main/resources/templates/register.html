@@ -23,20 +23,53 @@
 
         <!-- 기본 정보 -->
         <div class="form-group">
-            <label for="username">Name:</label>
-            <input type="text" id="username" name="username" placeholder="이름을 입력해주세요" th:value="${name}" required>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="이름을 입력해주세요" th:value="${name}" required>
         </div>
+
         <div class="form-group">
-            <label for="userId">User ID:</label>
-            <input type="text" id="userId" name="userId" placeholder="아이디를 입력해주세요" th:value="${userId}" required>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="아이디를 입력해주세요" th:value="${username}" required>
         </div>
+
         <div class="form-group">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요" th:value="${password}" required>
+            <input type="password" id="password" name="password" placeholder="비밀번호를 입력해주세요" required>
+        </div>
+
+        <div class="form-group">
+            <label for="birthDate">Birth Date:</label>
+            <input type="date" id="birthDate" name="birthDate" th:value="${birthDate}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" th:value="${gender}" required>
+                <option value="">성별을 선택해주세요</option>
+                <option value="Male">남성</option>
+                <option value="Female">여성</option>
+                <option value="Other">기타</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="휴대전화 번호를 입력해주세요" th:value="${phoneNumber}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요" th:value="${email}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" placeholder="주소지를 입력해주세요" th:value="${address}" required>
         </div>
 
         <button type="submit" class="submit-btn">가입하기</button>
     </form>
+
 </div>
 
 </body>

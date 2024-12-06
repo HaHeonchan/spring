@@ -20,8 +20,8 @@
 
     <form onsubmit="loginJWT(event)">
         <div class="form-group">
-            <label for="userId">User ID:</label>
-            <input type="text" id="userId" name="userId" placeholder="아이디를 입력해주세요" required>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="이름을 입력해주세요" required>
         </div>
         <div class="form-group">
             <label for="password">Password:</label>
@@ -41,11 +41,11 @@
     function loginJWT(event) {
         event.preventDefault();
 
-        fetch("/login/jwt", {
+        fetch("/api/login", {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                userId: document.querySelector('#userId').value,
+                username: document.querySelector('#username').value,
                 password: document.querySelector('#password').value
             })
         })

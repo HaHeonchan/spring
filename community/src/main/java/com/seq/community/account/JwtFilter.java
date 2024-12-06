@@ -53,7 +53,6 @@ public class JwtFilter extends OncePerRequestFilter {
                 "none",
                 authorities
         );
-        customUser.userId = claim.get("userId").toString();
 
         var authToken = new UsernamePasswordAuthenticationToken(
                 customUser,
